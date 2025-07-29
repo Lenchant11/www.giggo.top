@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Giggo User Task Hive – Home</title>
+  <meta name="google-site-verification" content="5uOiwFgP8z1MJlmti__OP6wh52YPWRu0FR3W8CZIhKE" />
+  <meta name="description" content="Giggo User Task Hive connects skilled professionals with global microtask opportunities. Transparent. Fast. Rewarding.">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+  <!-- ✅ 页面新增样式（合作伙伴布局 + 奖励中心卡片样式） -->
+  <style>
+    /* 合作伙伴 LOGO 区域 */
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      align-items: center;
+      justify-items: center;
+      margin-top: 20px;
+    }
+
+    .partner img {
+      max-height: 32px;
+      max-width: 100px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      transition: filter 0.3s;
+    }
+
+    .partner img:hover {
+      filter: grayscale(0%);
+    }
+
+    @media (max-width: 768px) {
+      .partner-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Inside the Rewards Center 样式优化 */
+    .reward-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 1em;
+    }
+
+    .reward-list li {
+      background: #f8fafc;
+      border-left: 4px solid #2563eb;
+      padding: 10px 16px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .reward-info p {
+      font-size: 15px;
+      color: #4b5563;
+    }
+  </style>
+</head>
+<body>
+  <!-- ✅ 顶部导航 -->
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <a href="index.html" class="logo-link">
+          <img src="images/logo.png" alt="Giggo Logo" class="logo-icon"> Online Task
+        </a>
+      </div>
+	  <!-- ✅ 移动端导航菜单按钮（点击切换 nav 显示） -->
+	  <button class="menu-toggle" onclick="document.querySelector('.nav nav').classList.toggle('active')">
+	  ☰
+	  </button>
+      <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="rewards.html">Rewards Center</a>
+        <a href="task-hub.html">Task Hub</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="haq.html">HAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ✅ Hero 横幅 -->
+  <section class="hero">
+  <h1>Flexible Online Tasks, Accessible Globally</h1>
+  <p>Discover a trusted platform offering verified microtask opportunities from various industries. No experience required. Get started today.</p>
+  <a href="rewards.html" class="btn">Explore Opportunities</a>
+  </section>
+
+  <!-- ✅ 公司简介模块 -->
+  <section class="section">
+    <h2>About Giggo Hive</h2>
+    <p>
+      Giggo User Task Hive is a next-generation global gig economy platform designed to empower users with real earning opportunities through microtasks. From product testing and content review to customer support and AI data labeling, our platform offers a diverse set of verified tasks sourced from leading global enterprises.
+    </p>
+    <p>
+      We pride ourselves on making online work accessible, transparent, and rewarding. With users from over 60 countries and partnerships with top e-commerce and tech brands, Giggo provides multilingual support, mobile-first workflows, and fast, reliable payouts. Join us and turn your free time into real income—anytime, anywhere.
+    </p>
+  </section>
+
+  <!-- ✅ 热门任务展示 -->
+  <section class="section cards">
+    <h2>Trending Microtasks</h2>
+    <div class="card-grid">
+      <div class="card"><h3>📝 Product Review Writing</h3><p>Reward: ₹500</p><p>Location: India</p></div>
+      <div class="card"><h3>🎧 Audio Transcription</h3><p>Reward: $15</p><p>Location: United States</p></div>
+      <div class="card"><h3>📷 Image Categorization</h3><p>Reward: ₱350</p><p>Location: Philippines</p></div>
+      <div class="card"><h3>🗣️ Content Moderation</h3><p>Reward: R$50</p><p>Location: Brazil</p></div>
+      <div class="card"><h3>💬 Chatbot Training</h3><p>Reward: ₫150,000</p><p>Location: Vietnam</p></div>
+      <div class="card"><h3>📦 E-commerce Feedback</h3><p>Reward: RM 20</p><p>Location: Malaysia</p></div>
+      <div class="card"><h3>📱 App UI Testing</h3><p>Reward: €12</p><p>Location: Germany</p></div>
+      <div class="card"><h3>🧠 AI Data Annotation</h3><p>Reward: ¥1200</p><p>Location: Japan</p></div>
+    </div>
+    <a href="task-hub.html" class="btn-secondary">Explore All Tasks</a>
+  </section>
+
+  <!-- ✅ 奖励中心模块（已美化） -->
+  <section class="section reward-info">
+    <h2>Inside the Rewards Center</h2>
+    <p>Discover how you can earn real income by completing small tasks. Each task is verified, timed, and comes with clear instructions.</p>
+    <ul class="reward-list">
+      <li>🎯 Clear instructions and time limits</li>
+      <li>💸 Transparent payout system with local currency support</li>
+      <li>🎁 Bonus programs for top performers</li>
+      <li>📤 Weekly payout cycles and referral rewards</li>
+    </ul>
+  </section>
+
+  <!-- ✅ 合作伙伴模块（已优化） -->
+  <section class="section">
+    <h2>Our Tasks May Originate From</h2>
+    <div class="partner-grid">
+      <div class="partner"><img src="images/Amazon_logo.png" alt="Amazon"></div>
+      <div class="partner"><img src="images/Alibaba_logo.png" alt="Alibaba"></div>
+      <div class="partner"><img src="images/Shopee_logo.png" alt="Shopee"></div>
+      <div class="partner"><img src="images/Lazada_logo.png" alt="Lazada"></div>
+      <div class="partner"><img src="images/eBay_logo.png" alt="eBay"></div>
+      <div class="partner"><img src="images/YouTube_logo.png" alt="YouTube"></div>
+      <div class="partner"><img src="images/Vimeo_logo.png" alt="Vimeo"></div>
+      <div class="partner"><img src="images/TikTok_logo.png" alt="TikTok"></div>
+    </div>
+	<p style="font-size: 13px; color: #777; text-align: center;">
+	Tasks listed on Giggo may be submitted by merchants or affiliates from global platforms such as Amazon, Shopee, Lazada, and others. <br>
+	We verify each task independently to ensure safety and compliance.<br>
+	*Logos are for illustrative purposes only. We are not affiliated with these brands unless explicitly stated.
+	</p>
+  </section>
+
+  <!-- ✅ 页脚 -->
+  <footer class="footer-enhanced">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Giggo Hive</h4>
+        <p>Connecting users worldwide with flexible online reward tasks.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="rewards.html">Rewards Center</a></li>
+          <li><a href="task-hub.html">Task Hub</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="user-guide.html">User Manual</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Giggo User Task Hive. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
