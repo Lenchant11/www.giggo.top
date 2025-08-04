@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="noindex,nofollow" />
+  <meta name="description" content="Telefonunuzdan basit görevleri tamamlayarak ödüller kazanın. Deneyim gerekmez." />
+  <title>Görev Platformu - Telefonunla Kazan (Türkiye)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+
+  <!-- ✅ Google Ads Dönüşüm İzleme Kodu -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17307038503"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'AW-17307038503');
+
+    function gtag_report_conversion(url) {
+      let jumped = false;
+      gtag('event', 'conversion', {
+        'send_to': 'AW-17307038503/HPA2CJS3re8aEKfm0bxA',
+        'value': 3.0,
+        'currency': 'USD',
+        'event_callback': function () {
+          if (!jumped) {
+            jumped = true;
+            window.location.href = url;
+          }
+        }
+      });
+      setTimeout(() => {
+        if (!jumped) {
+          window.location.href = url;
+        }
+      }, 300);
+      return false;
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      margin: 0; padding: 0;
+      background: #f5f8fa; color: #2c3e50;
+      font-size: 15px; line-height: 1.6;
+      direction: ltr;
+    }
+    header {
+      background: linear-gradient(to right, #0f766e, #2dd4bf);
+      color: white; padding: 28px 16px; text-align: center;
+    }
+    header h1 { font-size: 1.6em; margin-bottom: 6px; }
+    header img { max-width: 100%; height: auto; border-radius: 12px; margin-top: 12px; }
+    header p { font-size: 1em; margin-bottom: 8px; }
+    header .sub { font-size: 0.9em; color: #d1fae5; font-style: italic; }
+
+    .container { max-width: 640px; margin: auto; padding: 14px; }
+
+    section {
+      background: #ffffff; border-radius: 10px;
+      padding: 12px 14px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); margin: 16px 0;
+    }
+    h2 {
+      font-size: 1.2em; color: #1f2937;
+      background: #e0f2fe; padding: 10px 14px;
+      border-left: 5px solid #0284c7; border-radius: 8px;
+    }
+    ul { padding-left: 18px; margin: 0; }
+    ul li { margin-bottom: 6px; }
+
+    .testimonial {
+      font-style: italic; border-left: 3px solid #10b981;
+      padding-left: 10px; margin-bottom: 10px;
+    }
+
+    .cta-button {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      color: white; font-weight: 600; padding: 14px 18px;
+      border: none; border-radius: 10px; font-size: 1.05em;
+      cursor: pointer; text-decoration: none; display: inline-flex;
+      align-items: center; justify-content: center;
+      width: 90%; max-width: 320px; margin: 12px auto;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+      background: linear-gradient(135deg, #c2410c, #9a3412);
+      transform: scale(1.04);
+    }
+    .hand-icon {
+      animation: wiggle 1s infinite;
+      display: inline-block; margin-right: 6px;
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(10deg); }
+      75% { transform: rotate(-10deg); }
+    }
+
+    .footer {
+      text-align: center; font-size: 0.85em;
+      color: #6b7280; padding: 20px 8px;
+      border-top: 1px solid #e5e7eb; background: #f9fafb;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Ürünleri test et, ödül kazan!</h1>
+    <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/smartphone-1957740_1280.jpg" alt="Mobil görev görseli" />
+    <p>Basit görevleri doğrudan telefonundan tamamla</p>
+    <div class="sub">Herhangi bir deneyim ya da ön ödeme gerekmez</div>
+    <a href="#" class="cta-button" onclick="return gtag_report_conversion('/service/index.html?lang=tr&id=gljy2.lqtask.xyz/Turkey/');">
+      <span class="hand-icon">👈</span>&nbsp Bize Ulaş
+    </a>
+  </header>
+
+  <div class="container">
+
+    <section>
+      <h2>Nasıl Çalışır?</h2>
+      <ul>
+        <li>💬 Destek ile iletişime geç – talimatları al</li>
+        <li>📦 Görevleri telefonundan tamamla</li>
+        <li>💰 Ödülünü anında al</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Sana Ne Sunuyoruz?</h2>
+      <ul>
+        <li>💵 Her görev için ₺1800 ila ₺6750 arası kazanç</li>
+        <li>📲 Dilediğin ödeme yöntemini kullanabilirsin</li>
+        <li>✅ Bazı görevlerde ürün temini tamamen bizden</li>
+      </ul>
+
+      <div style="text-align: center; margin-top: 14px;">
+        <a href="#" class="cta-button" onclick="return gtag_report_conversion('/service/index.html?lang=tr&id=gljy2.lqtask.xyz/Turkey/');">
+          <span class="hand-icon">👈</span>&nbsp Hemen Başla
+        </a>
+      </div>
+    </section>
+
+    <section style="background: #fff7ed; border-left: 4px solid #f97316; padding: 12px 16px; border-radius: 8px; margin: 16px;">
+      <p style="margin: 0; font-size: 0.95em;">
+        ⚠️ Not: Bu platform herhangi bir finansal hizmet sunmamaktadır. Kredi, yatırım veya benzeri hizmetler vermiyoruz.
+      </p>
+    </section>
+
+    <section>
+      <h2>Kullanıcı Yorumları</h2>
+      <div class="testimonial">"Görev çok kolaydı, aynı gün ödeme aldım."</div>
+      <div class="testimonial">"Evden ek gelir elde etmek için harika bir yol."</div>
+    </section>
+
+    <section>
+      <h2>Sıkça Sorulan Sorular</h2>
+      <ul>
+        <li><strong>Bu bir iş mi?</strong> – Hayır, görev başına kazançtır.</li>
+        <li><strong>Üyelik ücreti var mı?</strong> – Hayır, tamamen ücretsiz.</li>
+        <li><strong>Ne zaman ödeme alırım?</strong> – Görevi tamamladıktan hemen sonra.</li>
+        <li><strong>Kimler katılabilir?</strong> – 18 yaş üstü, akıllı telefon sahibi herkes.</li>
+      </ul>
+    </section>
+
+    <section style="text-align: center; margin-top: 20px;">
+      <h2>Hazır mısın?</h2>
+      <a href="#" class="cta-button" onclick="return gtag_report_conversion('/service/index.html?lang=tr&id=gljy2.lqtask.xyz/Turkey/');">
+        <span class="hand-icon">👈</span>&nbsp Başla
+      </a>
+    </section>
+  </div>
+
+  <div class="footer">
+    © 2025 Giggo Online Task | <a href="/privacy.html">Gizlilik Politikası</a> | <a href="/userterms.html">Kullanım Şartları</a>
+  </div>
+</body>
+</html>
