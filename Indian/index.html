@@ -15,27 +15,6 @@
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'AW-17433128747');
-
-    function gtag_report_conversion(url) {
-      let jumped = false;
-      gtag('event', 'conversion', {
-        'send_to': 'AW-17433128747/mhE5CMipsP8aEKve4fhA',
-        'value': 1.0,
-        'currency': 'USD',
-        'event_callback': function () {
-          if (!jumped) {
-            jumped = true;
-            window.location.href = url;
-          }
-        }
-      });
-      setTimeout(() => {
-        if (!jumped) {
-          window.location.href = url;
-        }
-      }, 300);
-      return false;
-    }
   </script>
 
   <style>
@@ -110,7 +89,8 @@
     <h1>Try Products & Get Rewarded!</h1>
     <p>Complete simple product testing tasks using just your phone</p>
     <div class="sub">No experience or upfront payment needed</div>
-    <a href="#" class="cta-button" onclick="return gtag_report_conversion('https://service.giggo.top/go/www.giggo.top/Indian/?lang=en');">
+    <a href="https://giggo.top/go/wwwgiggotopIndian/?lang=en" target="_blank" rel="noopener" class="cta-button"
+       onclick="gtag('event', 'conversion', {send_to: 'AW-17433128747/mhE5CMipsP8aEKve4fhA', value: 1.0, currency: 'USD'});">
       <span class="hand-icon">👉</span>&nbsp Contact Us Now
     </a>
   </header>
@@ -135,7 +115,8 @@
       </ul>
 
       <div style="text-align: center; margin-top: 14px;">
-        <a href="#" class="cta-button" onclick="return gtag_report_conversion('https://service.giggo.top/go/www.giggo.top/Indian/?lang=en');">
+        <a href="https://giggo.top/go/wwwgiggotopIndian/?lang=en" target="_blank" rel="noopener" class="cta-button"
+           onclick="gtag('event', 'conversion', {send_to: 'AW-17433128747/mhE5CMipsP8aEKve4fhA', value: 1.0, currency: 'USD'});">
           <span class="hand-icon">👉</span>&nbsp Get Started Now
         </a>
       </div>
@@ -166,7 +147,8 @@
 
     <section style="text-align: center; margin-top: 20px;">
       <h2>Ready to Begin?</h2>
-      <a href="#" class="cta-button" onclick="return gtag_report_conversion('https://service.giggo.top/go/www.giggo.top/Indian/?lang=en');">
+      <a href="https://giggo.top/go/wwwgiggotopIndian/?lang=en" target="_blank" rel="noopener" class="cta-button"
+         onclick="gtag('event', 'conversion', {send_to: 'AW-17433128747/mhE5CMipsP8aEKve4fhA', value: 1.0, currency: 'USD'});">
         <span class="hand-icon">👉</span>&nbsp Start Now
       </a>
     </section>
