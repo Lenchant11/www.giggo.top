@@ -1,19 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Redirecting...</title>
-  <script>
-    // WhatsApp 账号数组
-    const accounts = [
-      "12345678901", 
-      "19876543210", 
-      "11223344556"
-    ];
-
-    // 预填话术数组
-    const messages = [
-      "Can I really finish this job from home","Where is this work based","I want extra income now","Share me the details please",
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>INDIA REMOTE-Redirecting...</title>
+<script>
+const a=["12345678901","19876543210","11223344556"];
+const m=["Can I really finish this job from home","Where is this work based","I want extra income now","Share me the details please",
 "Can you send me the full info","Can I begin right away?","I need more earning options","Show me how it works, Okay?",
 "How to apply for this","Guide me step by step","I want to earn daily","Send me the process please","Explain how it pays",
 "How much can I make per day?","Can I really earn daily cash using phone","Do I only need my phone to work",
@@ -29,24 +17,6 @@
 "Is this actually a part time earning opportunity","Do you pay in cash or to account","Is this a side job for quick income",
 "Are the earnings as high as you said","Is this online work real and fully legit","Is this a genuine job with real income",
 "Are you still accepting applicants for this job","Is this an easy task that pays daily","Give me clear instructions",
-"Can I trust this work for real money","Do I need experience","Can I work part time","How can I start today"
-    ];
-
-    // 从 localStorage 获取轮询下标（持久存储）
-    let msgIndex = parseInt(localStorage.getItem("msgIndex") || "0", 10);
-    const message = messages[msgIndex];
-    msgIndex = (msgIndex + 1) % messages.length;
-    localStorage.setItem("msgIndex", msgIndex);
-
-    // 随机选择一个账号
-    const account = accounts[Math.floor(Math.random() * accounts.length)];
-
-    // 拼接 WhatsApp 链接并跳转
-    const url = `https://wa.me/${account}?text=${encodeURIComponent(message)}`;
-    window.location.replace(url);
-  </script>
-</head>
-<body>
-  <p>Redirecting to WhatsApp...</p>
-</body>
-</html>
+"Can I trust this work for real money","Do I need experience","Can I work part time","How can I start today"];
+location.href="https://wa.me/"+a[Math.floor(Math.random()*a.length)]+"?text="+encodeURIComponent(m[Math.floor(Math.random()*m.length)]);
+</script></head><body></body></html>
