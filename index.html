@@ -439,6 +439,67 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 136, 204, 0.3);
         }
+
+        .special-offer {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(240, 147, 251, 0.1));
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    margin: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.special-offer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b6b, #f093fb, #667eea);
+    animation: shimmer 2s infinite;
+}
+
+.special-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-top: 8px;
+    animation: pulse 2s infinite;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}
+
+.special-offer .service-price {
+    color: #ff6b6b;
+    font-weight: 800;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+        @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
         
         /* Animations */
         @keyframes fadeIn {
@@ -489,7 +550,15 @@
                 max-width: 300px;
                 justify-content: center;
             }
-        }
+
+            .special-offer {
+                margin: 10px;
+            }
+    
+            .special-offer .service-price {
+                 font-size: 1.3rem;
+             }
+         }
         
         @media (max-width: 480px) {
             .container {
@@ -590,6 +659,23 @@
                             </div>
                         </div>
                         <div class="service-price">$5.99<span class="price-unit" data-en="/1K Followers" data-cn">/1K 粉丝</span></div>
+                    </div>
+                    <div class="service-row special-offer">
+                        <div class="service-info">
+                            <div class="service-icon tiktok-color">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div>
+                                <div class="service-name" data-en="Special Offer: 1M Automated Followers" data-cn="特价优惠：100万自动化粉丝">Special Offer: 1M Automated Followers</div>
+                                <div class="service-description" data-en="Robot-generated followers with no social interaction" data-cn="机器人生成的粉丝，不参与任何社交互动">Robot-generated followers with no social interaction</div>
+                                <div class="special-badge" data-en="LIMITED TIME" data-cn="限时优惠">LIMITED TIME</div>
+                            </div>
+                        </div>
+                        <div class="service-price">
+                            <span class="original-price">$3999.00</span>
+                            $799.90
+                            <span class="price-unit" data-en="/1M Followers" data-cn">/100万粉丝</span>
+                        </div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -1006,6 +1092,7 @@
     </script>
 </body>
 </html>
+
 
 
 
