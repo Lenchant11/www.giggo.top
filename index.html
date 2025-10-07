@@ -3,19 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Growth Academy | Pricing</title>
+    <title>Social Growth Academy | Premium Pricing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #667eea;
             --primary-dark: #5a6fd8;
             --secondary: #764ba2;
+            --accent: #f093fb;
+            --dark: #1a1a2e;
+            --darker: #16213e;
             --light: #f8f9fa;
-            --dark: #343a40;
             --gray: #6c757d;
             --success: #28a745;
-            --border-radius: 10px;
-            --shadow: 0 5px 15px rgba(0,0,0,0.08);
-            --transition: all 0.3s ease;
+            --border-radius: 12px;
+            --shadow: 0 10px 30px rgba(0,0,0,0.15);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --glow: 0 0 20px rgba(102, 126, 234, 0.4);
         }
         
         * {
@@ -26,72 +30,187 @@
         }
         
         body {
-            background-color: #f5f7fb;
-            color: #333;
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
             line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            min-height: 100vh;
             padding: 20px;
         }
         
-        .pricing-header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 30px 0;
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
         }
         
-        .pricing-title {
-            font-size: 2.5rem;
+        /* Header Styles */
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         
-        .pricing-subtitle {
-            font-size: 1.1rem;
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
+        /* Language Switcher */
+        .lang-switcher {
+            position: relative;
         }
         
-        .platform-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .platform-tab {
-            padding: 12px 25px;
-            background: white;
-            border: none;
-            border-radius: var(--border-radius);
-            font-weight: 600;
+        .lang-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: var(--transition);
-            box-shadow: var(--shadow);
             display: flex;
             align-items: center;
             gap: 8px;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+        
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .lang-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(30,30,50,0.95);
+            border-radius: 10px;
+            padding: 10px;
+            margin-top: 5px;
+            min-width: 150px;
+            display: none;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            z-index: 100;
+        }
+        
+        .lang-options.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .lang-option {
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .lang-option:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .lang-option.active {
+            background: rgba(102, 126, 234, 0.3);
+        }
+        
+        .lang-option i {
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .lang-option.active i {
+            opacity: 1;
+        }
+        
+        /* Pricing Header */
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 30px 0;
+        }
+        
+        .pricing-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .pricing-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Platform Tabs */
+        .platform-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .platform-tab {
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(10px);
+            color: rgba(255,255,255,0.8);
         }
         
         .platform-tab:hover {
+            background: rgba(255,255,255,0.1);
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            box-shadow: var(--shadow);
         }
         
         .platform-tab.active {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
+            box-shadow: var(--glow);
         }
         
+        /* Platform Content */
         .platform-content {
             display: none;
             animation: fadeIn 0.5s ease;
@@ -102,32 +221,51 @@
         }
         
         .pricing-table {
-            background: white;
+            background: rgba(255,255,255,0.05);
             border-radius: var(--border-radius);
             overflow: hidden;
             box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 30px;
         }
         
         .table-header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 20px;
+            padding: 25px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .table-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
         }
         
         .platform-name {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
         }
         
         .platform-description {
-            font-size: 1rem;
+            font-size: 1.1rem;
             opacity: 0.9;
+            position: relative;
+            z-index: 1;
         }
         
         .table-body {
@@ -138,13 +276,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 25px;
-            border-bottom: 1px solid #eee;
+            padding: 20px 30px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
             transition: var(--transition);
+            position: relative;
         }
         
         .service-row:hover {
-            background-color: #f9f9f9;
+            background: rgba(255,255,255,0.03);
         }
         
         .service-row:last-child {
@@ -154,114 +293,53 @@
         .service-info {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
         
         .service-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
         .service-name {
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
         
         .service-description {
-            font-size: 0.9rem;
-            color: var(--gray);
-            margin-top: 3px;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.7);
+            margin-top: 5px;
         }
         
         .service-price {
             font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary);
-        }
-        
-        .price-disclaimer {
-            background: #fff9e6;
-            border-left: 4px solid #ffc107;
-            padding: 15px 20px;
-            margin-top: 30px;
-            border-radius: 5px;
-            font-size: 0.95rem;
-        }
-        
-        .disclaimer-icon {
-            color: #ffc107;
-            margin-right: 8px;
-        }
-        
-        .cta-section {
-            text-align: center;
-            margin-top: 40px;
-            padding: 30px;
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-        
-        .cta-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        .cta-subtitle {
-            color: var(--gray);
-            margin-bottom: 25px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .btn {
-            padding: 12px 30px;
-            border-radius: 50px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
+            font-size: 1.3rem;
+            color: var(--accent);
+            display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 5px;
         }
         
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
-        }
-        
-        .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
+        .price-unit {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
         }
         
         /* Platform-specific colors */
         .tiktok-color {
-            background: #000000;
+            background: linear-gradient(135deg, #000000, #25F4EE);
         }
         
         .facebook-color {
-            background: #1877F2;
+            background: linear-gradient(135deg, #1877F2, #42B72A);
         }
         
         .instagram-color {
@@ -269,18 +347,104 @@
         }
         
         .twitter-color {
-            background: #1DA1F2;
+            background: linear-gradient(135deg, #1DA1F2, #14171A);
         }
         
+        /* Price Disclaimer */
+        .price-disclaimer {
+            background: rgba(255,193,7,0.1);
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .disclaimer-icon {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin-top: 2px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: rgba(255,255,255,0.05);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .cta-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: white;
+        }
+        
+        .cta-subtitle {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-telegram {
+            background: linear-gradient(135deg, #0088cc, #34AADF);
+            color: white;
+        }
+        
+        .btn-telegram:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 136, 204, 0.3);
+        }
+        
+        /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
         /* Responsive styles */
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .pricing-title {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
             .platform-tabs {
@@ -293,21 +457,38 @@
                 max-width: 300px;
                 justify-content: center;
             }
+        }
+        
+        @media (max-width: 768px) {
+            .pricing-title {
+                font-size: 2rem;
+            }
             
             .service-row {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 10px;
+                gap: 15px;
             }
             
             .service-price {
                 align-self: flex-end;
             }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
         }
         
         @media (max-width: 480px) {
             .container {
-                padding: 15px;
+                padding: 10px;
             }
             
             .pricing-title {
@@ -315,16 +496,52 @@
             }
             
             .platform-name {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+            }
+            
+            .service-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .service-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="page-header">
+            <div class="logo">
+                <div class="logo-icon">SGA</div>
+                <div class="logo-text">SocialGrowth</div>
+            </div>
+            
+            <div class="lang-switcher">
+                <button class="lang-btn">
+                    <i class="fas fa-globe"></i>
+                    <span id="current-lang">EN</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="lang-options">
+                    <div class="lang-option active" data-lang="en">
+                        <i class="fas fa-check"></i>
+                        English
+                    </div>
+                    <div class="lang-option" data-lang="cn">
+                        简体中文
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         <div class="pricing-header">
-            <h1 class="pricing-title" data-en="Social Media Growth Services" data-cn="社交媒体增长服务">Social Media Growth Services</h1>
-            <p class="pricing-subtitle" data-en="Professional growth services for all major social platforms" data-cn="为所有主要社交平台提供的专业增长服务">Professional growth services for all major social platforms</p>
+            <h1 class="pricing-title" data-en="Premium Social Media Growth Services" data-cn="专业社交媒体增长服务">Premium Social Media Growth Services</h1>
+            <p class="pricing-subtitle" data-en="Advanced growth solutions powered by AI-driven analytics and optimization algorithms" data-cn="由AI驱动分析和优化算法提供支持的先进增长解决方案">Advanced growth solutions powered by AI-driven analytics and optimization algorithms</p>
         </div>
         
         <div class="platform-tabs">
@@ -354,7 +571,7 @@
                         <i class="fab fa-tiktok"></i>
                         <span data-en="TikTok Growth Services" data-cn="TikTok增长服务">TikTok Growth Services</span>
                     </h2>
-                    <p class="platform-description" data-en="Boost your TikTok presence with our targeted growth services" data-cn="通过我们的定向增长服务提升您的TikTok影响力">Boost your TikTok presence with our targeted growth services</p>
+                    <p class="platform-description" data-en="Algorithm-optimized growth strategies for maximum FYP exposure" data-cn="算法优化的增长策略，实现最大推荐页曝光">Algorithm-optimized growth strategies for maximum FYP exposure</p>
                 </div>
                 <div class="table-body">
                     <div class="service-row">
@@ -364,10 +581,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Followers" data-cn="粉丝关注">Followers</div>
-                                <div class="service-description" data-en="Increase your follower count with targeted users" data-cn="通过定向用户增加您的粉丝数量">Increase your follower count with targeted users</div>
+                                <div class="service-description" data-en="Targeted follower growth with high engagement rates" data-cn="定向粉丝增长，具有高互动率">Targeted follower growth with high engagement rates</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/follower" data-cn">/粉丝</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -376,10 +593,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Video Likes" data-cn="视频点赞">Video Likes</div>
-                                <div class="service-description" data-en="Boost engagement on your TikTok videos" data-cn="提高您TikTok视频的互动率">Boost engagement on your TikTok videos</div>
+                                <div class="service-description" data-en="Boost video engagement and algorithm ranking" data-cn="提高视频互动和算法排名">Boost video engagement and algorithm ranking</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/like" data-cn">/点赞</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -388,10 +605,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Video Views" data-cn="视频观看">Video Views</div>
-                                <div class="service-description" data-en="Increase visibility with more video views" data-cn="通过更多视频观看增加曝光度">Increase visibility with more video views</div>
+                                <div class="service-description" data-en="Increase video visibility and watch time" data-cn="增加视频可见度和观看时长">Increase video visibility and watch time</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/view" data-cn">/观看</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -400,10 +617,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Video Shares" data-cn="视频分享">Video Shares</div>
-                                <div class="service-description" data-en="Expand your reach through social sharing" data-cn="通过社交分享扩大您的覆盖范围">Expand your reach through social sharing</div>
+                                <div class="service-description" data-en="Amplify reach through organic sharing" data-cn="通过有机分享扩大覆盖范围">Amplify reach through organic sharing</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/share" data-cn">/分享</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -412,10 +629,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Video Comments" data-cn="视频评论">Video Comments</div>
-                                <div class="service-description" data-en="Generate authentic conversations on your content" data-cn="在您的内容上产生真实的对话">Generate authentic conversations on your content</div>
+                                <div class="service-description" data-en="Generate authentic engagement and discussions" data-cn="产生真实的互动和讨论">Generate authentic engagement and discussions</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/comment" data-cn">/评论</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -424,10 +641,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Video Saves" data-cn="视频收藏">Video Saves</div>
-                                <div class="service-description" data-en="Increase content longevity with more saves" data-cn="通过更多收藏增加内容寿命">Increase content longevity with more saves</div>
+                                <div class="service-description" data-en="Increase content longevity and algorithm favor" data-cn="增加内容寿命和算法偏好">Increase content longevity and algorithm favor</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/save" data-cn">/收藏</span></div>
                     </div>
                 </div>
             </div>
@@ -441,7 +658,7 @@
                         <i class="fab fa-facebook-f"></i>
                         <span data-en="Facebook Growth Services" data-cn="Facebook增长服务">Facebook Growth Services</span>
                     </h2>
-                    <p class="platform-description" data-en="Enhance your Facebook presence with our expert strategies" data-cn="通过我们的专家策略增强您的Facebook影响力">Enhance your Facebook presence with our expert strategies</p>
+                    <p class="platform-description" data-en="News Feed optimization and community engagement solutions" data-cn="信息流优化和社区互动解决方案">News Feed optimization and community engagement solutions</p>
                 </div>
                 <div class="table-body">
                     <div class="service-row">
@@ -451,10 +668,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Followers" data-cn="粉丝关注">Followers</div>
-                                <div class="service-description" data-en="Grow your Facebook follower base" data-cn="扩大您的Facebook粉丝基础">Grow your Facebook follower base</div>
+                                <div class="service-description" data-en="Grow your audience with targeted follower acquisition" data-cn="通过定向粉丝获取扩大您的受众">Grow your audience with targeted follower acquisition</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/follower" data-cn">/粉丝</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -463,10 +680,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Post Likes" data-cn="帖子点赞">Post Likes</div>
-                                <div class="service-description" data-en="Increase engagement on your Facebook posts" data-cn="提高您Facebook帖子的互动率">Increase engagement on your Facebook posts</div>
+                                <div class="service-description" data-en="Increase post engagement and visibility" data-cn="提高帖子互动和可见度">Increase post engagement and visibility</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/like" data-cn">/点赞</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -475,10 +692,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Post Shares" data-cn="帖子分享">Post Shares</div>
-                                <div class="service-description" data-en="Amplify your content reach through shares" data-cn="通过分享扩大您的内容覆盖范围">Amplify your content reach through shares</div>
+                                <div class="service-description" data-en="Expand organic reach through social sharing" data-cn="通过社交分享扩大有机覆盖范围">Expand organic reach through social sharing</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/share" data-cn">/分享</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -487,10 +704,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Page Likes" data-cn="主页点赞">Page Likes</div>
-                                <div class="service-description" data-en="Increase likes on your Facebook page" data-cn="增加您Facebook主页的点赞数">Increase likes on your Facebook page</div>
+                                <div class="service-description" data-en="Increase page authority and community size" data-cn="增加页面权威性和社区规模">Increase page authority and community size</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/like" data-cn">/点赞</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -499,10 +716,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Video Views" data-cn="视频观看">Video Views</div>
-                                <div class="service-description" data-en="Boost visibility for your Facebook videos" data-cn="提高您Facebook视频的可见度">Boost visibility for your Facebook videos</div>
+                                <div class="service-description" data-en="Boost video performance and watch time" data-cn="提高视频表现和观看时长">Boost video performance and watch time</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/view" data-cn">/观看</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -511,10 +728,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Live Comments" data-cn="直播发言">Live Comments</div>
-                                <div class="service-description" data-en="Increase engagement during Facebook Live sessions" data-cn="在Facebook直播期间增加互动">Increase engagement during Facebook Live sessions</div>
+                                <div class="service-description" data-en="Increase engagement during Facebook Live streams" data-cn="在Facebook直播期间增加互动">Increase engagement during Facebook Live streams</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/comment" data-cn">/发言</span></div>
                     </div>
                 </div>
             </div>
@@ -528,7 +745,7 @@
                         <i class="fab fa-twitter"></i>
                         <span data-en="Twitter Growth Services" data-cn="Twitter增长服务">Twitter Growth Services</span>
                     </h2>
-                    <p class="platform-description" data-en="Expand your Twitter influence with our targeted approach" data-cn="通过我们的定向方法扩大您的Twitter影响力">Expand your Twitter influence with our targeted approach</p>
+                    <p class="platform-description" data-en="Trend optimization and conversation amplification strategies" data-cn="趋势优化和对话放大策略">Trend optimization and conversation amplification strategies</p>
                 </div>
                 <div class="table-body">
                     <div class="service-row">
@@ -538,10 +755,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Followers" data-cn="粉丝关注">Followers</div>
-                                <div class="service-description" data-en="Grow your Twitter follower count" data-cn="增加您的Twitter粉丝数量">Grow your Twitter follower count</div>
+                                <div class="service-description" data-en="Build a targeted and engaged follower base" data-cn="建立定向且活跃的粉丝基础">Build a targeted and engaged follower base</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/follower" data-cn">/粉丝</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -550,10 +767,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Tweet Likes" data-cn="帖子点赞">Tweet Likes</div>
-                                <div class="service-description" data-en="Increase likes on your tweets" data-cn="增加您推文的点赞数">Increase likes on your tweets</div>
+                                <div class="service-description" data-en="Increase tweet engagement and visibility" data-cn="提高推文互动和可见度">Increase tweet engagement and visibility</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/like" data-cn">/点赞</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -562,10 +779,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Tweet Views" data-cn="帖子浏览">Tweet Views</div>
-                                <div class="service-description" data-en="Boost visibility for your tweets" data-cn="提高您推文的可见度">Boost visibility for your tweets</div>
+                                <div class="service-description" data-en="Boost tweet impressions and reach" data-cn="提高推文曝光和覆盖范围">Boost tweet impressions and reach</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/view" data-cn">/浏览</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -574,10 +791,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Tweet Retweets" data-cn="帖子转发">Tweet Retweets</div>
-                                <div class="service-description" data-en="Amplify your message through retweets" data-cn="通过转发扩大您的信息传播">Amplify your message through retweets</div>
+                                <div class="service-description" data-en="Amplify message distribution and virality" data-cn="扩大信息传播和病毒性">Amplify message distribution and virality</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/retweet" data-cn">/转发</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -586,10 +803,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Tweet Comments" data-cn="帖子评论">Tweet Comments</div>
-                                <div class="service-description" data-en="Generate conversations around your tweets" data-cn="围绕您的推文产生对话">Generate conversations around your tweets</div>
+                                <div class="service-description" data-en="Generate discussion and thread engagement" data-cn="产生讨论和线程互动">Generate discussion and thread engagement</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/comment" data-cn">/评论</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -598,10 +815,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Space Listeners" data-cn="空间听众">Space Listeners</div>
-                                <div class="service-description" data-en="Increase listeners for your Twitter Spaces" data-cn="增加您Twitter空间的听众数量">Increase listeners for your Twitter Spaces</div>
+                                <div class="service-description" data-en="Increase audience for Twitter Spaces sessions" data-cn="增加Twitter空间的听众数量">Increase audience for Twitter Spaces sessions</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/listener" data-cn">/听众</span></div>
                     </div>
                 </div>
             </div>
@@ -615,7 +832,7 @@
                         <i class="fab fa-instagram"></i>
                         <span data-en="Instagram Growth Services" data-cn="Instagram增长服务">Instagram Growth Services</span>
                     </h2>
-                    <p class="platform-description" data-en="Elevate your Instagram profile with our growth solutions" data-cn="通过我们的增长解决方案提升您的Instagram个人资料">Elevate your Instagram profile with our growth solutions</p>
+                    <p class="platform-description" data-en="Visual content optimization and story engagement solutions" data-cn="视觉内容优化和故事互动解决方案">Visual content optimization and story engagement solutions</p>
                 </div>
                 <div class="table-body">
                     <div class="service-row">
@@ -625,10 +842,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Followers" data-cn="粉丝关注">Followers</div>
-                                <div class="service-description" data-en="Increase your Instagram follower count" data-cn="增加您的Instagram粉丝数量">Increase your Instagram follower count</div>
+                                <div class="service-description" data-en="Grow your Instagram community with targeted followers" data-cn="通过定向粉丝扩大您的Instagram社区">Grow your Instagram community with targeted followers</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/follower" data-cn">/粉丝</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -637,10 +854,10 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Likes" data-cn="点赞">Likes</div>
-                                <div class="service-description" data-en="Boost engagement on your Instagram posts" data-cn="提高您Instagram帖子的互动率">Boost engagement on your Instagram posts</div>
+                                <div class="service-description" data-en="Increase post engagement and algorithm favor" data-cn="提高帖子互动和算法偏好">Increase post engagement and algorithm favor</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/like" data-cn">/点赞</span></div>
                     </div>
                     <div class="service-row">
                         <div class="service-info">
@@ -649,41 +866,63 @@
                             </div>
                             <div>
                                 <div class="service-name" data-en="Views" data-cn="播放">Views</div>
-                                <div class="service-description" data-en="Increase views on your Instagram videos and reels" data-cn="增加您Instagram视频和Reels的播放量">Increase views on your Instagram videos and reels</div>
+                                <div class="service-description" data-en="Boost Reels and video content performance" data-cn="提高Reels和视频内容表现">Boost Reels and video content performance</div>
                             </div>
                         </div>
-                        <div class="service-price">$0.01</div>
+                        <div class="service-price">$0.01<span class="price-unit" data-en="/view" data-cn">/播放</span></div>
                     </div>
                 </div>
             </div>
         </div>
         
         <div class="price-disclaimer">
-            <p>
-                <i class="fas fa-exclamation-triangle disclaimer-icon"></i>
-                <span data-en="Please note: Prices may vary by region and time due to technical environment changes. Actual prices are subject to real-time quotes from our customer service team." data-cn="请注意：不同国家和地区和不同时间的价格会随着技术环境而不同，具体价格请以客服告知的实时价格为准。">Please note: Prices may vary by region and time due to technical environment changes. Actual prices are subject to real-time quotes from our customer service team.</span>
-            </p>
+            <i class="fas fa-exclamation-circle disclaimer-icon"></i>
+            <p data-en="Please note: Prices may vary by region and time due to technical environment changes. Actual prices are subject to real-time quotes from our customer service team." data-cn="请注意：不同国家和地区和不同时间的价格会随着技术环境而不同，具体价格请以客服告知的实时价格为准。">Please note: Prices may vary by region and time due to technical environment changes. Actual prices are subject to real-time quotes from our customer service team.</p>
         </div>
         
         <div class="cta-section">
-            <h3 class="cta-title" data-en="Ready to Boost Your Social Presence?" data-cn="准备好提升您的社交媒体影响力了吗？">Ready to Boost Your Social Presence?</h3>
-            <p class="cta-subtitle" data-en="Contact our experts for a customized growth strategy tailored to your specific needs" data-cn="联系我们的专家，获取针对您特定需求量身定制的增长策略">Contact our experts for a customized growth strategy tailored to your specific needs</p>
-            <div style="margin-top: 20px;">
-                <button class="btn btn-primary" onclick="contactSupport()">
-                    <i class="fas fa-comments"></i>
-                    <span data-en="Contact Support" data-cn="联系客服">Contact Support</span>
+            <h3 class="cta-title" data-en="Ready to Accelerate Your Social Growth?" data-cn="准备好加速您的社交媒体增长了吗？">Ready to Accelerate Your Social Growth?</h3>
+            <p class="cta-subtitle" data-en="Connect with our growth specialists for a personalized strategy consultation" data-cn="与我们的增长专家联系，获取个性化的策略咨询">Connect with our growth specialists for a personalized strategy consultation</p>
+            <div class="cta-buttons">
+                <button class="btn btn-whatsapp" onclick="openWhatsApp()">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-en="Contact via WhatsApp" data-cn="通过WhatsApp联系">Contact via WhatsApp</span>
                 </button>
-                <button class="btn btn-secondary" onclick="viewServices()" style="margin-left: 10px;">
-                    <i class="fas fa-info-circle"></i>
-                    <span data-en="Learn More" data-cn="了解更多">Learn More</span>
+                <button class="btn btn-telegram" onclick="openTelegram()">
+                    <i class="fab fa-telegram"></i>
+                    <span data-en="Contact via Telegram" data-cn="通过Telegram联系">Contact via Telegram</span>
                 </button>
             </div>
         </div>
     </div>
 
     <script>
+        // 联系信息
+        const WHATSAPP_NUMBER = '447754979958';
+        const TELEGRAM_USERNAME = 'TY22222222';
+        
         // 语言管理
         let currentLang = 'en';
+        
+        // 打开WhatsApp
+        function openWhatsApp() {
+            const message = currentLang === 'en' 
+                ? "Hello! I'm interested in your social media growth services. Can you provide more information about pricing and packages?" 
+                : "您好！我对您的社交媒体增长服务感兴趣。能否提供更多关于价格和套餐的信息？";
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        
+        // 打开Telegram
+        function openTelegram() {
+            const message = currentLang === 'en' 
+                ? "Hello! I'm interested in your social media growth services." 
+                : "您好！我对您的社交媒体增长服务感兴趣。";
+            const encodedMessage = encodeURIComponent(message);
+            const telegramUrl = `https://t.me/${TELEGRAM_USERNAME}?start=${encodedMessage}`;
+            window.open(telegramUrl, '_blank');
+        }
         
         // 检测用户语言偏好
         function detectUserLanguage() {
@@ -702,6 +941,16 @@
                 if (element.hasAttribute(`data-${lang}`)) {
                     const text = element.getAttribute(`data-${lang}`);
                     element.textContent = text;
+                }
+            });
+            
+            document.getElementById('current-lang').textContent = lang === 'en' ? 'EN' : '中文';
+            
+            document.querySelectorAll('.lang-option').forEach(option => {
+                if (option.getAttribute('data-lang') === lang) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
                 }
             });
             
@@ -728,22 +977,6 @@
             });
         }
         
-        // 联系客服功能
-        function contactSupport() {
-            const message = currentLang === 'en' 
-                ? "Hello! I'm interested in your social media growth services. Can you provide more information?" 
-                : "您好！我对您的社交媒体增长服务感兴趣。能否提供更多信息？";
-            alert(message);
-        }
-        
-        // 了解更多功能
-        function viewServices() {
-            const message = currentLang === 'en' 
-                ? "Redirecting to our main services page..." 
-                : "正在跳转到我们的主要服务页面...";
-            alert(message);
-        }
-        
         // 初始化
         document.addEventListener('DOMContentLoaded', function() {
             // 语言初始化
@@ -757,10 +990,26 @@
             
             // 设置平台标签
             setupPlatformTabs();
+            
+            // 语言切换器功能
+            document.querySelector('.lang-btn').addEventListener('click', function() {
+                document.querySelector('.lang-options').classList.toggle('show');
+            });
+            
+            document.querySelectorAll('.lang-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    switchLanguage(lang);
+                    document.querySelector('.lang-options').classList.remove('show');
+                });
+            });
+            
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.lang-switcher')) {
+                    document.querySelector('.lang-options').classList.remove('show');
+                }
+            });
         });
     </script>
-    
-    <!-- Font Awesome for icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </body>
 </html>
